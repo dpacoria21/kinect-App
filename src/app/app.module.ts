@@ -3,8 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { KinectModule } from './kinect/kinect.module';
 import { SharedModule } from './shared/shared.module';
+import { KinectModule } from './kinect/kinect.module';
+
 
 
 @NgModule({
@@ -12,8 +13,8 @@ import { SharedModule } from './shared/shared.module';
     AppComponent,
   ],
   imports: [
-    SharedModule,
     KinectModule,
+    SharedModule,
     BrowserModule,
     AppRoutingModule
   ],
