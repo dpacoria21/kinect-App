@@ -3,16 +3,27 @@
             <h1 class="title">
                 BIENVENIDO
             </h1>
-            <img class="img-fluid rounded mx-auto d-block" src="../../../../assets/cyte.png">
-            <div class="datos">
-                <form>
-                    <input  placeholder="Username" type="text" id="username" name="username">
-                    <input  placeholder="Password" type="password" id="password" name="password">
+            <img class="img-fluid rounded mx-auto size" src="../../../../assets/cyte.png">
+            
+            
+                <form class="example-form">
+   
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Usuario</mat-label>
+                        <input autocomplete="off" matInput placeholder="Ex.Gnter132">
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Contraseña</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'"> 
+                    </mat-form-field>
+
                     <div class="d-grid gap-2 col-6 mx-auto">
                         <button class="btn btn-primary" type="button">Iniciar Sesion</button>
                     </div>
+                    
                 </form>
-            </div>
+            
         </div>
     </div>
 
