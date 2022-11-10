@@ -1,28 +1,48 @@
     <div class="contenedor">
         <div class="carta">
             <h1 class="title">
-                BIENVENIDO
+                BIENVEDIDO
             </h1>
             <img class="img-fluid rounded mx-auto size" src="../../../../assets/cyte.png">
             
-            
-                <form class="example-form">
+
+
+            <!-- <form (ngSubmit)="buscar()" class="example-form">
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Favorite food</mat-label>
+                  <input name="username" [(ngModel)]="username" matInput placeholder="Ex. Pizza" value="Sushi">
+                </mat-form-field>
+              
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Leave a comment</mat-label>
+                  <input name="password" [(ngModel)]="password" matInput placeholder="Ex. Pizza" value="Sushi">
+                </mat-form-field>
+
+                <button type="submit">envia</button>
+            </form> -->
+                 <form (ngSubmit)="userVerificated()" class="example-form">
    
-                    <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-form-field class="example-full-width"  appearance="fill">
                         <mat-label>Usuario</mat-label>
-                        <input autocomplete="off" matInput placeholder="Ex.Gnter132">
+                        <input  name="username" [(ngModel)]="username" autocomplete="off" matInput placeholder="Ex.Gunter132">
                     </mat-form-field>
 
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Contraseña</mat-label>
-                        <input matInput [type]="hide ? 'password' : 'text'"> 
+                        <input  name="password" [(ngModel)]="password" matInput [type]="hide ? 'password' : 'text'"> 
                     </mat-form-field>
 
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <button class="btn btn-primary" type="button">Iniciar Sesion</button>
+                        <button type="submit" class="btn btn-primary" >Iniciar Sesion</button>
                     </div>
                     
-                </form>
+                </form> 
+
+                <!-- <form (ngSubmit)="userVerificated()" method="post">
+                    <input type="text" name="username" [(ngModel)]="username">
+                    <input type="password" name="password" [(ngModel)]="password">
+                    <button type="submit">Hola Mudno</button>
+                </form> -->
             
         </div>
     </div>

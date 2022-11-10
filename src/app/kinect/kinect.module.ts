@@ -6,6 +6,9 @@ import { VerificatedComponent } from './components/verificated/verificated.compo
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { ResultsComponent } from './pages/results/results.component';
+import { ForNothingComponent } from './pages/for-nothing/for-nothing.component';
 
 
 
@@ -14,14 +17,18 @@ import {MatInputModule} from '@angular/material/input';
     MainPageComponent,
     LoginComponent,
     VerificatedComponent,
+    ResultsComponent,
+    ForNothingComponent,
   ],
   imports: [
     CommonModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    
   ], exports: [
-
+    
   ]
 })
 export class KinectModule { }
