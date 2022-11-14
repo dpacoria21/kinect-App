@@ -15,11 +15,12 @@
             <li class="nav-item">
               <a *ngIf="!showBoolean()" class="nav-link" routerLink="login">Login</a>
             </li>
+            
             <li class="nav-item">
-              <a *ngIf="showBoolean()"  class="nav-link" routerLink="results">Resultados</a>
+              <a *ngIf="showBoolean()"  class="nav-link" routerLink="auth/results">Resultados</a>
             </li>
             <li class="nav-item">
-              <a *ngIf="showBoolean()"  class="nav-link" routerLink="forNothing">Examples</a>
+              <a *ngIf="showBoolean()"  class="nav-link" routerLink="auth/forNothing">Examples</a>
             </li>
           </ul>
           <div *ngIf="showBoolean()" class="d-flex justify-content-center">
@@ -31,7 +32,7 @@
                 <img class="separador" width="50px" height="42px" src="../../../assets/usuario.png">
               </li>
             </ul>
-            <a class="logout" href="#">Logout</a>
+            <a (click)="logout()" class="logout" href="auth/">Logout</a>
           </div>
           <div *ngIf="!showBoolean()">
             <img width="42px" height="42px" src="../../../assets/hombre.png">

@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanLoad } from '@angular/router';
 import { MainPageComponent } from './kinect/pages/main-page/main-page.component';
 import { LoginComponent } from './kinect/pages/login/login.component';
-import { ForNothingComponent } from './kinect/pages/for-nothing/for-nothing.component';
-import { ResultsComponent } from './kinect/pages/results/results.component';
+import { AuthGuard } from './auth/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -13,10 +12,10 @@ const routes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-    path: 'results', component: ResultsComponent
-  },
-  {
-    path: 'forNothing', component: ForNothingComponent
+    path: 'auth',
+    loadChildren: () => import ('./auth/auth.module').then(m => m.AuthModule),
+    canLoad: [AuthGuard],
+    canActivate: [AuthGuard]
   },
   {
     path: '**', redirectTo: ''
@@ -25,6 +24,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

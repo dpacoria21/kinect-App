@@ -8,6 +8,7 @@ import { Auth } from '../../auth/interfaces/auth.interface';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
+  router: any;
 
   constructor( private authService: AuthService ) { }
   
@@ -17,5 +18,13 @@ export class SidebarComponent {
 
   showBoolean():boolean{
     return this.authService.showResults();
+  }
+
+  logout(){
+    this.authService.logout();
+  }
+
+  example(){
+    this.authService.verificaAutentificacion();
   }
 }
