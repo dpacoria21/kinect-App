@@ -19,7 +19,7 @@ export class AuthService {
     return this.http.post<Auth>(this.baseUrl,user).subscribe(resp => {
       this._autor = resp;
       this.isValidate = this._autor.success;
-      console.log(this._autor.success);
+      console.log(this._autor.user.fullname);
       this.router.navigate(['./']);
     }, error => {
       console.log(error.error.message[0]);
@@ -28,6 +28,10 @@ export class AuthService {
 
   showResults():boolean{
     return this.isValidate;
+  }
+
+  get auth():Auth {
+    return {...this._autor!};
   }
 
 

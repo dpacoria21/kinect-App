@@ -39,3 +39,21 @@
 .padd {
   padding-left: 10px;
 }
+
+.separador {
+  padding-right: 7px;
+  border-right: 1px solid black;
+}
+
+.logout {
+  padding: 5px;
+  text-decoration: none;
+  color: black;
+  margin: auto;
+}
+
+.userName {
+  display: inline-block;
+  margin: auto;
+  padding: 7px;
+}
