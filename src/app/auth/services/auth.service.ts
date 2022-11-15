@@ -36,7 +36,13 @@ export class AuthService {
   }
 
   showResults():boolean{
-    return this.isValidate;
+    
+    if(localStorage.getItem('user') !== null || localStorage.getItem('auth')){
+      this._user = JSON.parse( localStorage.getItem('user')! );
+      this._autor = JSON.parse( localStorage.getItem('auth')! );
+      return true;
+    }
+    return false;
   }
 
   get auth():Auth {

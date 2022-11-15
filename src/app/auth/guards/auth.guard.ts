@@ -25,7 +25,7 @@ export class AuthGuard implements CanLoad, CanActivate {
         .pipe(
           tap( estaAutenticado => {
             if (!estaAutenticado){
-              this.router.navigate(['./'])
+              this.router.navigate(['./login'])
             }
           })
         );
@@ -40,7 +40,7 @@ export class AuthGuard implements CanLoad, CanActivate {
       .pipe(
         tap( estaAutenticado => {
           if (!estaAutenticado){
-            this.router.navigate(['./'])
+            this.router.navigate(['./login'])
           }
         })
       );
