@@ -15,7 +15,7 @@ const routes: Routes = [
         path: 'forNothing', component: ForNothingComponent
       },
       {
-        path: '**', redirectTo: ''
+        path: '**', redirectTo: 'http://localhost:4200/'
       }
     ]
   }
