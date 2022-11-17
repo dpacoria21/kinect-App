@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../auth/services/auth.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-results',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultsComponent implements OnInit {
 
-  constructor() { }
+  constructor( private authService:AuthService, private cookieService: CookieService ) { }
 
   ngOnInit(): void {
+    this.authService.getDatos()
+      .subscribe();
   }
 
 }

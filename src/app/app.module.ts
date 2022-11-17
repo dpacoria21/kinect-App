@@ -8,6 +8,7 @@ import { KinectModule } from './kinect/kinect.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -25,7 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     AuthModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

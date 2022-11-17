@@ -3,24 +3,31 @@ import { HttpClient } from '@angular/common/http';
 import { Auth, User } from '../interfaces/auth.interface';
 import { Router } from '@angular/router';
 import { map, Observable, of, tap } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private baseUrl: string = 'http://localhost:4000/api/auth';
+  private baseUrl: string = 'http://localhost:4000/api';
 
   private isValidate: boolean = false;
   private _autor: Auth | undefined;
 
   private _user: User | undefined;
 
-  constructor( private http: HttpClient, private router: Router ) { }
+  constructor( private http: HttpClient, private router: Router, private cookieService:CookieService ) { }
+
+  getDatos(){
+    return this.http.get(`${this.baseUrl}/users`,{withCredentials:true});
+  }
+
 
   login(user: User){
     this._user = user;
-    return this.http.post<Auth>(`${this.baseUrl}/login`,user)
+    return this.http.post<Auth>(`${this.baseUrl}/auth/login`,user,{ withCredentials:true })
+      
       .pipe(
         tap( auth => localStorage.setItem( 'auth', JSON.stringify(auth) ) )
       )
@@ -37,7 +44,7 @@ export class AuthService {
 
   showResults():boolean{
     
-    if(localStorage.getItem('user') !== null || localStorage.getItem('auth')){
+    if( localStorage.getItem('user') !== null || localStorage.getItem('auth') ){
       this._user = JSON.parse( localStorage.getItem('user')! );
       this._autor = JSON.parse( localStorage.getItem('auth')! );
       return true;
@@ -50,12 +57,17 @@ export class AuthService {
   }
 
   logout():void{
-    this.http.post(`${this.baseUrl}/logout`, this._autor);
-    localStorage.removeItem('user');
-    localStorage.removeItem('auth');
-    this.isValidate = false;
-    this._autor = undefined;
-    this._user = undefined;
+    this.http.post(`${this.baseUrl}/auth/logout`,this._autor,{withCredentials:true})
+      .subscribe( (resp:any) => {
+        if(resp.success){
+          localStorage.removeItem('user');
+          localStorage.removeItem('auth');
+          this.isValidate = false;
+          this._autor = undefined;
+          this._user = undefined;
+        }
+      });
+    
   }
 
   verificaAutentificacion(): Observable<boolean>{
@@ -64,7 +76,7 @@ export class AuthService {
       return of(false);
     }
 
-    return this.http.post<Auth>(`${this.baseUrl}/login`, JSON.parse(localStorage.getItem('user')!))
+    return this.http.get<Auth>(`${this.baseUrl}/auth/validate`, {withCredentials:true})
       .pipe(
         map( auth => {
           this._autor = auth;
