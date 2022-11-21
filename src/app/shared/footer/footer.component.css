@@ -1,11 +1,14 @@
 footer {
     margin-top: 40px;
     background: black;
-    height: auto;
     width: 100%;
     font-family: "Open Sans";
     padding-top: 20px;
     color: #fff;
+    position: absolute;
+    bottom: 0;
+    height: auto;
+    z-index: 1;
 }
 
 .footer-content {

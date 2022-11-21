@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ResultsComponent } from '../kinect/pages/results/results.component';
 import { ForNothingComponent } from '../kinect/pages/for-nothing/for-nothing.component';
+import { GraficaComponent } from '../kinect/components/grafica/grafica.component';
 
 const routes: Routes = [
   {
@@ -15,7 +16,10 @@ const routes: Routes = [
         path: 'forNothing', component: ForNothingComponent
       },
       {
-        path: '**', redirectTo: 'http://localhost:4200/'
+        path: 'results/sessions', component: GraficaComponent
+      },
+      {
+        path: '**', redirectTo: './auth'
       }
     ]
   }

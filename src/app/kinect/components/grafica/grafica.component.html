@@ -1,0 +1,31 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div #ContainerRef class="card" style="align-items: center; margin: auto; width: 60%; border: 0;">
+    <h1>RESULTADOS DE PUNTOS POR SESIONES</h1>
+    <ngx-charts-line-chart
+    (window:resize)="
+    resizeChart(ContainerRef.offsetWidth)
+    "
+      [view]="view"
+      scheme="neons"
+      [legend]="legend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxis]="xAxis"
+      [yAxis]="yAxis"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      [timeline]="timeline"
+      [results]="multiRes"
+      (select)="onSelect($event)"
+      (activate)="onActivate($event)"
+      (deactivate)="onDeactivate($event)">
+    </ngx-charts-line-chart>
+  
+</div>
+
+

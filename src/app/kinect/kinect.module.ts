@@ -9,7 +9,11 @@ import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { ResultsComponent } from './pages/results/results.component';
 import { ForNothingComponent } from './pages/for-nothing/for-nothing.component';
-
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GraficaComponent } from './components/grafica/grafica.component';
+import { RouterModule } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -19,6 +23,7 @@ import { ForNothingComponent } from './pages/for-nothing/for-nothing.component';
     VerificatedComponent,
     ResultsComponent,
     ForNothingComponent,
+    GraficaComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +31,10 @@ import { ForNothingComponent } from './pages/for-nothing/for-nothing.component';
     MatIconModule,
     MatInputModule,
     FormsModule,
+    NgxChartsModule,
+    BrowserAnimationsModule,
+    RouterModule,
+    
     
   ], exports: [
     

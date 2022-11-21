@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Auth, User } from '../interfaces/auth.interface';
+import { Auth, User, Sessions } from '../interfaces/auth.interface';
 import { Router } from '@angular/router';
 import { map, Observable, of, tap } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
@@ -87,5 +87,8 @@ export class AuthService {
       );
   }
 
+  obtenerDatosDeSesiones(): any {
+    return this.http.get<Sessions>(`${this.baseUrl}/sessions`, {withCredentials: true});
+  }
 
 }
