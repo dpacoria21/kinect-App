@@ -26,7 +26,7 @@ export class GraficaComponent {
         }
         this.series[i] = aux;
         let datos: Datas = {
-          name: 'Score',
+          name: 'Puntaje',
           series: this.series
         }
         this.multiRes = [datos];
@@ -42,7 +42,7 @@ export class GraficaComponent {
   view: [number, number] = [800, 400];
 
   // options
-  legend: boolean = false;
+  legend: boolean = true;
   showLabels: boolean = true;
   animations: boolean = true;
   xAxis: boolean = true;
