@@ -18,6 +18,10 @@ export class LoginComponent {
   userVerificated () : void {
     const aux : User = {dni: this.username, password: this.password}
     this.authService.login(aux);
+    if(!this.authService.estaValidado){
+      this.username = "";
+      this.password = "";
+    }
   }
 
 }

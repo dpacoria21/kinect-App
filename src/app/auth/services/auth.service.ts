@@ -4,6 +4,7 @@ import { Auth, User, Sessions } from '../interfaces/auth.interface';
 import { Router } from '@angular/router';
 import { map, Observable, of, tap } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -35,10 +36,14 @@ export class AuthService {
         this._autor = resp;
         localStorage.setItem('user', JSON.stringify(this._user));
         this.isValidate = this._autor.success;
-        console.log(this._autor.user.fullname);
         this.router.navigate(['./']);
       }, error => {
-        console.log(error.error.message[0]);
+        Swal.fire({
+          icon: "error",
+          title: error.error.message[0],
+          text: '',
+          footer: '¡Enviado desde nuestro servidor!'
+        })
     });
   }
 
@@ -89,6 +94,10 @@ export class AuthService {
 
   obtenerDatosDeSesiones(): any {
     return this.http.get<Sessions>(`${this.baseUrl}/sessions`, {withCredentials: true});
+  }
+
+  get estaValidado():boolean{
+    return this.isValidate;
   }
 
 }
