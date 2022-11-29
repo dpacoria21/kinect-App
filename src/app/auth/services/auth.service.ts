@@ -10,7 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class AuthService {
 
-  private baseUrl: string = 'http://localhost:4000/api';
+  private baseUrl: string = 'https://kinect-api-gopoma.onrender.com/api';
 
   private isValidate: boolean = false;
   private _autor: Auth | undefined;
