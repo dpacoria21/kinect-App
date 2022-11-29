@@ -21,7 +21,7 @@ export class GraficaComponent {
     .subscribe( (resp:Sessions) =>{
       for(let i = 0; i<resp.sessions.length; i++){
         let aux: Serie = {
-          name: ''+resp.sessions[i].id,
+          name: ''+(i+1),
           value: resp.sessions[i].gameScore
         }
         this.series[i] = aux;

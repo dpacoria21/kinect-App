@@ -1,3 +1,33 @@
 a {
   cursor: pointer;
 }
+
+.cent {
+  margin: auto;
+}
+
+.color {
+  background-color: #1f6570;
+  border-radius: 0;
+  width: 100%;
+  color: white;
+}
+
+.linkStyle {
+  display: inline-block;
+  padding: 10px;
+  width: 100%;
+  background-color: #18aac0;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.offcanvas-body :hover {
+  background-color: #74d8e7;
+}
+
+.offcanvas {
+  background-color: #1f93a5;
+}
