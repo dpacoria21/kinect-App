@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class AuthService {
 
-  private baseUrl: string = 'https://kinect-api-gopoma.onrender.com/api';
+  private baseUrl: string = 'https://kinect-api-production.up.railway.app/api';
 
   private isValidate: boolean = false;
   private _autor: Auth | undefined;
@@ -28,7 +28,7 @@ export class AuthService {
   login(user: User){
     this._user = user;
     return this.http.post<Auth>(`${this.baseUrl}/auth/login`,user,{ withCredentials:true })
-      
+
       .pipe(
         tap( auth => localStorage.setItem( 'auth', JSON.stringify(auth) ) )
       )
@@ -48,7 +48,7 @@ export class AuthService {
   }
 
   showResults():boolean{
-    
+
     if( localStorage.getItem('user') !== null || localStorage.getItem('auth') ){
       this._user = JSON.parse( localStorage.getItem('user')! );
       this._autor = JSON.parse( localStorage.getItem('auth')! );
@@ -72,7 +72,7 @@ export class AuthService {
           this._user = undefined;
         }
       });
-    
+
   }
 
   verificaAutentificacion(): Observable<boolean>{
