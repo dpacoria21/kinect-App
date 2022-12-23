@@ -15,6 +15,8 @@ export class GraficaComponent {
   series: Serie[] = [];
   multiRes: Datas[] = [];
 
+  message:string = "";
+
   constructor( private authService:AuthService, private cookieService: CookieService ) { 
 
     this.authService.obtenerDatosDeSesiones()
@@ -32,7 +34,6 @@ export class GraficaComponent {
         this.multiRes = [datos];
       }
     });
-
   }
 
   resizeChart(width: any): void {
@@ -54,11 +55,27 @@ export class GraficaComponent {
   timeline: boolean = true;
 
 
-  
+  calculateMessage():void {
+    let res = 0;
+    for(let i=0; i<this.multiRes[0].series.length; i++) {
+      res += this.multiRes[0].series[i].value;
+    }
+    res = res/this.multiRes[0].series.length;
+    if(res<=100 && res>=90) {
+      this.message = `🎉¡Vamos campeón lo estás haciendo genial, sigue adelante🎉!`
+    }else if(res<90 && res>=70) {
+      this.message = `¡👏Aún se puede seguir mejorando, lo estás haciendo bien👏!`;
+    }else if(res<70 && res >=50) {
+      this.message = `¡👍Vamos que esto recién está comenzando, tú puedes lograr más👍!`;
+    }else {
+      this.message = `¡✔Buen intento, recuerda que los mejores son los que saben levantarse de una caída, no te rindas✔!`;
+    }
+  }
 
 
   onSelect(data: any): void {
     console.log('Item clicked', JSON.parse(JSON.stringify(data)));
+    this.calculateMessage();
   }
 
   onActivate(data: any): void {

@@ -1,1 +1,9 @@
+.beautiful-message {
+    font-family: Arial;
+    font-size: 30px;
+    color: rgb(7, 21, 148);
+}
 
+.container {
+    text-align: center;
+}
